@@ -34,13 +34,9 @@ You can change the hotkey via:
 
 v1.5.1
 > 
-* Supports field type changes.
-* Supports shortcut to open GsonFormat, default option + s (mac), alt + s (win)
-* Support for field name changes.
-* Support to add the prefix field.
-* Support for multiple conversion libraries (Gson, Jackjson, FastJson, LoganSquare).
-* Support for private and public modes.
-* Supports filtering of superclass into existing fields.
+* Supports Idea 2020.01.02.
+* Supports Flatten Json With Settings.
+
 
 ## License
 
