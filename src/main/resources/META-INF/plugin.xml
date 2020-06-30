@@ -1,0 +1,30 @@
+<idea-plugin>
+    <name>JFormatter</name>
+    <description><![CDATA[
+<html>quickly to convert a JSON string to an InnerClassEntity class ..<br>
+<a href="https://github.com/scs891/JFormatter"> openSource</a>
+      </html>
+      ]]>
+    </description>
+    <version>1.5.1</version>
+    <vendor email="yinshen@huli.com">Eason Yin</vendor>
+    <idea-version since-build="107.121"/>
+    <change-notes><![CDATA[
+  <p>
+  1.5.1
+  <ul>
+  <li>From GsonFormat Plugin. </li>
+  <li>Update to idea 2020.01.02. </li>
+  <li>Add json flatten module with settings.</li>
+  </p>
+]]>
+    </change-notes>
+    <actions>
+        <action id="JFormatter" class="com.huli.jformatter.intellij.MainAction" text="JFormatter">
+            <add-to-group group-id="GenerateGroup" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="alt s"/>
+        </action>
+    </actions>
+    <extensions defaultExtensionNs="com.intellij"/>
+    <depends>com.intellij.modules.java</depends>
+</idea-plugin>

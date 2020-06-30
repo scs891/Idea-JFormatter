@@ -1,0 +1,60 @@
+buildscript {
+    repositories {
+        mavenCentral()
+//        jcenter()
+    }
+}
+plugins {
+    id 'org.jetbrains.intellij' version '0.4.21'
+}
+
+apply plugin: 'org.jetbrains.intellij'
+apply plugin: 'java'
+dependencies {
+    compile group: 'com.github.wnameless.json', name: 'json-flattener', version: '0.9.0'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.10'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.11.0'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.0'
+}
+repositories {
+    maven { url 'http://dl.bintray.com/jetbrains/intellij-plugin-service' }
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
+    maven { url 'http://dev.soydai.me/nexus/content/groups/public' }
+    maven { url 'file://Users/Eason/MAVEN_REPO/repository/' }
+    mavenCentral()
+//    jcenter()
+    maven{ url'http://maven.aliyun.com/nexus/content/groups/public/' }
+    maven{ url'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
+}
+
+sourceSets {
+    main {
+        dependencies {
+            compile group: 'com.github.wnameless.json', name: 'json-flattener', version: '0.9.0'
+            compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.10'
+            compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.11.0'
+            compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.0'
+        }
+        java {
+            srcDir "${project.rootDir.absolutePath}/ThirdParty/json/java/src"
+            srcDir "${project.rootDir.absolutePath}/ThirdParty/treetable/java/src"
+        }
+    }
+}
+
+intellij {
+    version '2020.1.2'
+    plugins 'java'
+    pluginName 'JFormatter'
+    updateSinceUntilBuild false
+
+//    publish {
+//        pluginId '7910'
+//        username publishUsername
+//        password publishPassword
+//    }
+
+//     Uncomment to test against Android Studio
+//     intellij.alternativeIdePath = '/Applications/Android Studio.app'
+}
+
