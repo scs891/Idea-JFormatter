@@ -1,7 +1,6 @@
-Formatter
+JFormatter
 ------
   [jetbrains](https://plugins.jetbrains.com/plugin/7654?pr=androidstudio)
-  [![GsonFormat](https://img.shields.io/badge/Android%20Arsenal-GsonFormat-brightgreen.svg?style=flat)](https://github.com/scs891/Idea-JFormatter)
   [中文Readme](README_CN.md)
 
 This is a plugin you can generate Json model from Json String.
