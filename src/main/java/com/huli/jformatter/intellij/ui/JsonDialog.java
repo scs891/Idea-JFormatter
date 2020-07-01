@@ -2,15 +2,15 @@ package com.huli.jformatter.intellij.ui;
 
 import com.github.wnameless.json.flattener.FlattenMode;
 import com.github.wnameless.json.flattener.JsonFlattener;
+import com.huli.jformatter.intellij.ConvertBridge;
+import com.huli.jformatter.intellij.common.PsiClassUtil;
+import com.huli.jformatter.intellij.config.Config;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.MessageType;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.impl.source.PsiJavaFileImpl;
 import org.apache.http.util.TextUtils;
-import com.huli.jformatter.intellij.ConvertBridge;
-import com.huli.jformatter.intellij.common.PsiClassUtil;
-import com.huli.jformatter.intellij.config.Config;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -140,18 +140,18 @@ public class JsonDialog extends JFrame implements ConvertBridge.Operator {
     }
 
     private String format(String json) {
+        this.cleanErrorInfo();
         String formatJson = json.trim();
-        ConvertBridge bridge = new ConvertBridge(this, formatJson, file, project, null,
-                cls, null);
-        bridge.run();
         if (formatJson.startsWith("{")) {
             JSONObject jsonObject = new JSONObject(formatJson);
             formatJson = jsonObject.toString(4);
         } else if (formatJson.startsWith("[")) {
             JSONArray jsonArray = new JSONArray(formatJson);
             formatJson = jsonArray.toString(4);
+        } else {
+            this.showError(ConvertBridge.Error.DATA_ERROR);
+            this.setErrorInfo("invalid json format.");
         }
-
         return formatJson;
     }
 
